@@ -16,9 +16,9 @@ export default function FolderNav() {
                 </header>
                 <section>
                     <ul>
-                        <li>Folder 1</li>
-                        <li>Folder 2</li>
-                        <li>Folder 3</li>
+                        <button>Important</button><br />
+                        <button>Super</button><br />
+                        <button>Spangley</button><br />
                     </ul>
                 </section>
             </main>

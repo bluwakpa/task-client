@@ -8,8 +8,6 @@ import FilteredNotes from './FilteredNotes'
 
 console.log(elements)
 
-
-
 function App() {
   const [folders, setFolders] = useState(elements.folders)
   const [notes, setNotes] = useState(elements.notes)
