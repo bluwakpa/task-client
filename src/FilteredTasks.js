@@ -1,11 +1,11 @@
 import React from 'react'
 
-export default function FilteredNotes() {
+export default function FilteredTasks() {
 
 
     return (
         <h1>
-            FilteredNotes
+            FilteredTasks
         </h1>
     )
 }

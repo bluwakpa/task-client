@@ -1,11 +1,11 @@
 import React from 'react'
 
-export default function Note() {
+export default function Task() {
 
 
     return (
         <h1>
-            Note
+            Task
         </h1>
     )
 }

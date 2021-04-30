@@ -1,33 +1,33 @@
 import React, { useState } from 'react';
-import elements from './elements'
+import data from './data'
 import { Route, Link } from 'react-router-dom'
-import FolderNav from './FolderNav'
-import NoteList from './NoteList'
-import Note from './Note'
-import FilteredNotes from './FilteredNotes'
+import CategoryNav from './CategoryNav'
+import TaskList from './TaskList'
+import Task from './Task'
+import FilteredTasks from './FilteredTasks'
 
-console.log(elements)
+console.log(data)
 
 function App() {
-  const [folders, setFolders] = useState(elements.folders)
-  const [notes, setNotes] = useState(elements.notes)
+  const [categories, setCategories] = useState(data.categories)
+  const [tasks, setTasks] = useState(data.tasks)
   return (
     <main>
       <header>
         <h1>
-          <Link to="/">Noteful</Link>
+          <Link to="/">Task</Link>
         </h1>
       </header>
       <section style={{display:"flex"}}>
-        <Route exact path="/" component={FolderNav} />
-        <Route exact path="/" component={NoteList} />
+        <Route exact path="/" component={CategoryNav} />
+        <Route exact path="/" component={TaskList} />
       </section>
       <section style={{display:"flex"}}>
-        <Route exact path="/folder/:folderId" component={FolderNav} />
-        <Route exact path="/folder/:folderId" component={NoteList} />
+        <Route exact path="/category/:categoryId" component={CategoryNav} />
+        <Route exact path="/category/:categoryId" component={TaskList} />
       </section>
       <section>
-        <Route exact path="/note/:noteId" component={Note} />
+        <Route exact path="/task/:taskId" component={Task} />
       </section>
     </main>
   );
