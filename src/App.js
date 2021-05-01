@@ -12,6 +12,7 @@ export default function App() {
   // const context = useContext(ApiContext)
   // const [categories, setCategories] = useState(data.categories)
   const [tasks, setTasks] = useState(data.tasks)
+  console.log(tasks.content)
 
   function createTask(e, i) {
     const newTasks = [...tasks];
@@ -34,7 +35,7 @@ export default function App() {
 
   function toggleTaskComplete(i) {
     const tempTasks = [...tasks];
-    tempTasks[i].isCompleted = !tempTasks[i].isCompleted;
+    tempTasks[i].complete = !tempTasks[i].complete;
     setTasks(tempTasks);
   }
 
@@ -66,9 +67,9 @@ export default function App() {
       <form className="task-list">
         <ul>
           {tasks.map((task, i) => (
-            <div className={`task ${task.isCompleted && 'task-is-completed'}`}>
+            <div className={`task ${task.complete && 'task-is-ed'}`}>
               <div className={'checkbox'} onClick={() => toggleTaskComplete(i)}>
-                {task.isCompleted && (
+                {task.complete && (
                   <span>&#x2714;</span>
                 )}
               </div>
