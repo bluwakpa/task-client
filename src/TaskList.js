@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
-import { Route, Link } from 'react-router-dom'
-import data from './data'
+import React, { } from 'react'
+import { Link } from 'react-router-dom'
+// import data from './data'
 
 export default function TaskList() {
-    const [tasks, setTasks] = useState(data.tasks)
+    // const context = useContext(ApiContext)
+    // const [tasks, setTasks] = useState(data.tasks)
 
     return (
         <main>

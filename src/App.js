@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import data from './data'
-// import ApiContext from './ApiContext';
-// import { Route, Link } from 'react-router-dom'
+import ApiContext from './ApiContext';
+import { useParams } from 'react-router-dom'
 // import { v4 as uuidv4 } from 'uuid';
 // import CategoryNav from './CategoryNav'
 // import TaskList from './TaskList'
@@ -9,10 +9,36 @@ import data from './data'
 // import FilteredTasks from './FilteredTasks'
 
 export default function App() {
-  // const context = useContext(ApiContext)
+  // console.log('props', props)
+  // {}
+  const context = useContext(ApiContext)
+  console.log('context.data', context)
+  // {
+  //   categories: [],
+  //   tasks: [],
+  //   addCategory: () => {},
+  //   addTask: () => {},
+  //   editCategory: () => {},
+  //   editTask: () => {},
+  // }
   // const [categories, setCategories] = useState(data.categories)
   const [tasks, setTasks] = useState(data.tasks)
-  console.log(tasks.content)
+  console.log('tasks', tasks)
+  // "tasks": [{tasks}]
+  console.log('tasks.content', tasks.content)
+  // undef
+  
+  const task = context.tasks.find(task => task.id === data.match.params.id) || {};
+  console.log('task', task)
+  // {}
+  const taskIndex = context.tasks.indexOf(task)
+  console.log('taskIndex', taskIndex)
+  //  -1
+  const [content, setContent] = useState(tasks.content)
+  console.log('content', content)
+  // undef
+  // const content = context.data.tasks.content
+  // console.log(content)
 
   function createTask(e, i) {
     const newTasks = [...tasks];
