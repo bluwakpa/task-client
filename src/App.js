@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { Route, Link } from 'react-router-dom'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import TaskListNav from './TaskListNav'
-// import TaskPageNav from './TaskPageNav'
-// import TaskListMain from './TaskListMain'
-// import TaskPageMain from './TaskPageMain'
-// import addCategory from './addCategory'
+import TaskListNav from './TaskListNav'
+import TaskPageNav from './TaskPageNav'
+import TaskListMain from './TaskListMain'
+import TaskPageMain from './TaskPageMain'
+import AddCategory from './AddCategory'
 import AddTask from './AddTask'
 import data from './data'
 import { getTasksForCategory, findTask, findCategory } from './tasks-helpers'
@@ -102,7 +102,7 @@ class App extends Component {
         />
         <Route
           path='/add-category'
-          component={addCategory}
+          component={AddCategory}
         />
         <Route
           path='/add-task'

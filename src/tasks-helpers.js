@@ -4,7 +4,7 @@ categories.find(category => category.id === categoryId)
 export const findTask = (tasks=[], taskId) =>
 tasks.find(task => task.id === taskId)
 
-export const getTasksForCategories = (tasks=[], categoryId) => (
+export const getTasksForCategory = (tasks=[], categoryId) => (
   (!categoryId)
     ? tasks
     : tasks.filter(task => task.categoryId === categoryId)
