@@ -41,6 +41,7 @@ code {
   justify-content: center;
   align-items: center;
   border: 1px solid #fff;
+  background: #fff;
 }
 
 footer {
@@ -53,4 +54,16 @@ footer {
   background-color: #000;
   color:rgb(49, 204, 176);
   width: 100%;
+}
+
+.task-is-complete input {
+  text-decoration: line-through;
+}
+
+ul {
+  justify-content: center;
+  /* align-items: center; */
+  list-style: none;
+  line-height: 2rem;
+  padding: 0;
 }
