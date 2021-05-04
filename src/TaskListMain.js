@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Task from './Task'
-import CircleButton from '../CircleButton/CircleButton'
-import './TaskListMain.css'
+import CircleButton from './CircleButton'
+import './index.css'
 
 export default function TaskListMain(props) {
     return (
