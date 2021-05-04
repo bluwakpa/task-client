@@ -77,11 +77,11 @@ class App extends Component {
             path={path}
             render={routeProps => {
               const { categoryId } = routeProps.match.params
-              const getTasksForCategory = getTasksForCategory(tasks, categoryId)
+              const tasksForCategory = getTasksForCategory(tasks, categoryId)
               return (
                 <TaskListMain
                   {...routeProps}
-                  tasks={getTasksForCategory}
+                  tasks={tasksForCategory}
                 />
               )
             }}
