@@ -146,3 +146,214 @@ a.NavCircleButton {
 .NavCircleButton:hover {
   cursor: pointer;
 }
+
+.Task {
+  --note-height: 88px;
+  background-color: #010d1e;
+  color: #cacaca;
+  height: var(--note-height);
+  margin-bottom: 8px;
+  max-width: 380px;
+  padding: 8px 0 8px 8px;
+  position: relative;
+}
+
+.Task__delete {
+  --note-button-height: 32px;
+  background-color: #041a3a;
+  border: 0;
+  color: #bdbcbc;
+  float: right;
+  font-size: 12px;
+  height: var(--note-button-height);
+  position: relative;
+  top: calc((var(--note-button-height) + 32px) * -1);
+  transform-origin: right bottom;
+  transform: rotate(-90deg);
+  width: calc(var(--note-height));
+}
+.Task__delete:hover {
+  background-color: #bd0909;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.Task__title {
+  font-family: var(--custom-font);
+  font-size: 20px;
+  margin: 0;
+  max-width: 80%;
+  min-height: 24px;
+}
+.Task__title a {
+  color: #cacaca;
+  display: block;
+  text-decoration: none;
+}
+.Task__title a:hover {
+  color: #FFB72F;
+}
+
+.Task__dates {
+  bottom: 8px;
+  color: #a7a5a5;
+  font-size: 14px;
+  position: absolute;
+}
+
+.TaskListMain ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 10px;
+}
+
+.TaskListMain__button-container {
+  max-width: 380px;
+  margin: 0 10px;
+}
+
+.TaskListMain__add-task-button {
+  margin: 0 auto 20px;
+}
+.TaskListMain__add-task-button:hover {
+  background-color: #29862e;
+  color: white;
+}
+.TaskListNav__list {
+  list-style-type: none;
+  margin: 130px 0 0;
+  padding: 0;
+}
+
+.TaskListNav__button-wrapper {
+  margin: 0 0 0 auto;
+  max-width: 180px;
+}
+
+.TaskListNav__add-category-button {
+  margin: 20px auto;
+}
+.TaskListNav__add-category-button:hover {
+  background-color: #29862e;
+  color: white;
+}
+
+.TaskListNav__category-link {
+  background-color: #030f1f;
+  color: #b5b3b3;
+  display: block;
+  font-family: var(--custom-font);
+  font-size: 20px;
+  margin: 0 0 8px auto;
+  max-width: 180px;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+.TaskListNav__category-link:hover {
+  color: #FFB72F;
+  cursor: pointer;
+}
+.TaskListNav__category-link.active {
+  background-color: #102541;
+}
+
+.TaskListNav__num-notes {
+  color: #adadad;
+  display: block;
+  float: right;
+  font-size: 10px;
+}
+
+.TaskPageMain {
+  background-color: #efefef;
+  height: 100%;
+  padding: 10px;
+  width: 100%;
+}
+
+.TaskPageMain__content {
+  color: #3a3939;
+  max-width: 380px;
+}
+
+.TaskPageNav__back-button {
+  margin: 45px 20px 25px auto
+}
+.TaskPageNav__back-button:hover {
+  background-color: #FFB72F;
+}
+
+.TaskPageNav__category-name {
+  color: #b5b3b3;
+  font-family: var(--custom-font);
+  font-size: 40px;
+  height: 50vh;
+  margin: 0 0 0 auto;
+  text-orientation: upright;
+  width: 75px;
+  writing-mode: vertical-lr;
+}
+
+.Task-form {
+  background-color: #1d3656;
+  color: #dedede;
+  padding: 16px;
+  max-width: 332px;
+}
+
+.Task-form label {
+  display: block;
+  font-size: 16px;
+  padding-bottom: 8px;
+}
+
+.Task-form input,
+.Task-form textarea,
+.Task-form select {
+  font-size: 14px;
+  padding: 8px;
+  width: 300px;
+}
+
+.Task-form select {
+  height: 33px;
+}
+
+.Task-form > .field {
+  margin-bottom: 16px;
+}
+.Task-form > .buttons {
+  margin-top: 26px;
+}
+
+.Task-form button {
+  background-color: #010d1e;
+  border-radius: 4px;
+  border: 0;
+  color: #cacaca;
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 8px;
+  text-align: center;
+  text-decoration: none;
+}
+.Task-form button[type="submit"]:hover {
+  background-color: #29862e;
+  color: white;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

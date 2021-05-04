@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import TaskForm from '../TaskForm/TaskForm'
-import './AddTask.css'
+import TaskForm from './TaskForm'
+import './index.css'
 
 export default class AddTask extends Component {
   static defaultProps = {
