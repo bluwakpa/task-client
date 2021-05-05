@@ -1,13 +1,18 @@
 import React, { Component } from 'react'
 import TaskForm from './TaskForm'
-import './index.css'
+// import './index.css'
 
 export default class AddCategory extends Component {
   render() {
+    // onChange handlers setState for id name
+    const createCategory = () => {
+      this.props.addCategory(this.state.id, this.state.name)
+    }
     return (
       <section className='AddCategory'>
         <h2>Create a category</h2>
-        <TaskForm>
+        <TaskForm onSubmit={createCategory}
+        >
           <div className='field'>
             <label htmlFor='category-name-input'>
               Name

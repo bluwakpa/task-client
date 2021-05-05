@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, setState } from 'react'
 import { Route, Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import TaskListNav from './TaskListNav'
@@ -9,7 +9,7 @@ import AddCategory from './AddCategory'
 import AddTask from './AddTask'
 import data from './data'
 import { getTasksForCategory, findTask, findCategory } from './tasks-helpers'
-import './index.css'
+// import './index.css'
 
 class App extends Component {
   state = {
@@ -24,6 +24,10 @@ class App extends Component {
 
   renderNavRoutes() {
     const { tasks, categories } = this.state
+    console.log(categories)
+    // delete newCategory function pass to function
+    // const [category, newCategory] = setState(data);
+    
     return (
       <>
         {['/', '/category/:categoryId'].map(path =>
@@ -68,6 +72,10 @@ class App extends Component {
 
   renderMainRoutes() {
     const { tasks, categories } = this.state
+    const addCategory = (id, name) => {
+      const newCategory = { id, name }
+      this.setState({ categories: [...categories, newCategory]})
+    }
     return (
       <>
         {['/', '/category/:categoryId'].map(path =>
@@ -103,7 +111,7 @@ class App extends Component {
         <Route
           path='/add-category'
           component={AddCategory}
-        />
+        ><AddCategory addCategory={addCategory} /></Route>
         <Route
           path='/add-task'
           render={routeProps => {

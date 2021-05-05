@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Task from './Task'
 import CircleButton from './CircleButton'
-import './index.css'
+// import './index.css'
 
 export default function TaskListMain(props) {
     return (

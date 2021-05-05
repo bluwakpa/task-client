@@ -1,6 +1,6 @@
 import React from 'react'
 import Task from './Task'
-import './index.css'
+// import './index.css'
 
 export default function TaskPageMain(props) {
   return (

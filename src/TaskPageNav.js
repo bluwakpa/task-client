@@ -1,7 +1,7 @@
 import React from 'react'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import CircleButton from './CircleButton'
-import './index.css'
+// import './index.css'
 
 export default function TaskPageNav(props) {
   return (
@@ -12,7 +12,7 @@ export default function TaskPageNav(props) {
         onClick={() => props.history.goBack()}
         className='TaskPageNav__back-button'
       >
-        {/* <FontAwesomeIcon icon='chevron-left' /> */}
+        <FontAwesomeIcon icon='chevron-left' />
         <br />
         Back
       </CircleButton>
