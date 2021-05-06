@@ -1,8 +1,8 @@
-import React from 'react'
-import { NavLink, Link } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import CircleButton from './CircleButton'
-import { countTasksForCategory } from './tasks-helpers'
+// import React from 'react'
+// import { NavLink, Link } from 'react-router-dom'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import CircleButton from './CircleButton'
+// import { countTasksForCategory } from './tasks-helpers'
 // import './index.css'
 
 export default function TaskListNav(props) {

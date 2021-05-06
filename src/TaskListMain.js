@@ -13,7 +13,7 @@ export default function TaskListMain(props) {
                     <li key={task.id}>
                         <Task
                             id={task.id}
-                            name={task.name}
+                            content={task.content}
                             modified={task.modified}
                         />
                     </li>

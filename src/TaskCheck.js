@@ -8,10 +8,10 @@ export default function TaskCheck({ task, checked, setChecked }) {
                 <Link to={`/edit-task/${task.id}`}>
                     <button type='submit'> E </button>
                 </Link>
-                <span>{task.last_name}, {task.first_name}</span>
+                <span>{task.last_name}, {task.content}</span>
                 {/* setStudents to new version of students */}
-                <input onChange={(e) => setChecked(!checked)} type="checkbox" name="check"
-                    id="check" checked={checked} className="attendance">
+                <input className="checkbox" onChange={(e) => setChecked(!checked)} type="checkbox" name="check"
+                    id="check" checked={checked} className="complete">
                 </input>
             </label>
             </div>

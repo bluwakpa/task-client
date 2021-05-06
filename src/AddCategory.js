@@ -25,7 +25,7 @@ export default function AddCategory(props) {
           category: parseInt(formData.category),
         }
         context.setCategories([...context.categories, newCategory])
-        props.history.push(`/attendance/${formData.category}`)
+        props.history.push(`/task/${formData.category}`)
     }
     AddCategory.defaultProps = {
         /* insert fetch and then for db */
@@ -48,7 +48,7 @@ export default function AddCategory(props) {
                 {
                     context.categories.map(category => (
                         <div>
-                            <Link to={`/attendance/${category.category}`}>
+                            <Link to={`/task/${category.category}`}>
                                 <button type='submit'>
                                     <span>Task Category {category.category}</span>
                                 </button>

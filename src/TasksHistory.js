@@ -16,12 +16,12 @@ export default function TasksHistory(props) {
                 {tasks.map(task => (
                     <div>
                         <h3>
-                            {task.first_name} {task.last_name} <br />
+                            {task.content} {task.last_name} <br />
                         </h3>
 
                         <div>
                             {
-                                Object.entries(task.attendance).map(([date, present]) => (
+                                Object.entries(task.complete).map(([date, present]) => (
                                     <div>
                                         <p>{date}: {present ? "Present" : "Absent"}</p>
                                     </div>
@@ -33,7 +33,7 @@ export default function TasksHistory(props) {
 
             </header>
             <section className="button-section">
-                <Link to="/attendance"><button> Check </button></Link>
+                <Link to="/task"><button> Check </button></Link>
             </section>
         </main>
     );

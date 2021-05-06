@@ -1,32 +1,36 @@
+import React, { useState, useContext } from 'react';
+import ApiContext from './ApiContext';
+import { Link } from 'react-router-dom'
+
 export default function EditTask(props) {
     const context = useContext(ApiContext)
     console.log('context.tasks', context.tasks)
     const task = context.tasks.find(task => task.id === props.match.params.id);
     console.log('task', task)
     const taskIndex = context.tasks.indexOf(task)
-    const [firstName, setFirstName] = useState(task.first_name)
+    const [content, setContent] = useState(task.content)
     const [lastName, setLastName] = useState(task.last_name)
-    const firstNameChange = function (e) { setFirstName(e.target.value) }
+    const contentChange = function (e) { setContent(e.target.value) }
     const lastNameChange = function (e) { setLastName(e.target.value) }
     const setTasks = context.setTasks
     const onSubmit = (e) => {
         {/* insert fetch and then for db */ }
         e.preventDefault()
         console.log('inside handleClickDelete')
-        const newTask = { ...task, first_name: firstName, last_name: lastName }
+        const newTask = { ...task, content: content, last_name: lastName }
         const newTasks = [...context.tasks]
         newTasks[taskIndex] = newTask
         console.log('newTask', newTask)
         setTasks(newTasks)
-        props.history.push(`/attendance`)
+        props.history.push(`/task`)
     }
     const handleClickDelete = (e) => {
         e.preventDefault()
         const id = props.match.params.id
-        let deleted = context.tasks.filter(task => taskt.id !== id)
+        let deleted = context.tasks.filter(task => task.id !== id)
         console.log('handleClickDelete task', task)
         setTasks(deleted)
-        props.history.push(`/attendance`)
+        props.history.push(`/task`)
     }
     return (
         <main role="main">
@@ -37,8 +41,8 @@ export default function EditTask(props) {
                 </header>
                 <div>
                     {/* Text box defaults as students information based on id */}
-                    <label for="first-name">First name</label>
-                    <input placeholder={task.first_name} onChange={firstNameChange} value={firstName} type="text" name='first-name' id='first-name' />
+                    <label for="content">Content</label>
+                    <input placeholder={task.content} onChange={contentChange} value={content} type="text" name='content' id='content' />
                 </div>
                 <div>
                     <label for="last-name">Last name</label>

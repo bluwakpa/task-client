@@ -7,7 +7,7 @@ export default function AddTask(props) {
     const context = useContext(ApiContext)
 
     const init = {
-        firstName: "",
+        content: "",
         lastName: "",
     }
 
@@ -23,16 +23,13 @@ export default function AddTask(props) {
         {/* insert fetch and then for db */ }
         e.preventDefault()
         const newTask = {
-            first_name: formData.firstName,
+            content: formData.content,
             last_name: formData.lastName,
             id: uuidv4(),
-            attendance: {
-                "Today": false,
-                "Yesterday": false
-            }
+            complete: false,
         }
         context.setTasks([...context.tasks, newTask])
-        props.history.push(`/attendance/${formData.category}`)
+        props.history.push(`/task/${formData.category}`)
     }
 
 
@@ -43,15 +40,15 @@ export default function AddTask(props) {
                     <h2>Add Task</h2>
                 </header>
                 <div>
-                    <label htmlFor="first-name">First name</label>
-                    <input required='' type="text" placeholder='First Name' name='firstName' id='first-name' value={formData.firstName} onChange={handleChange} />
+                    <label htmlFor="first-name">Task</label>
+                    <input required='' type="text" placeholder='Enter Task' name='content' id='content' value={formData.content} onChange={handleChange} />
                 </div>
                 <div>
                     <label htmlFor="last-name">Last name</label>
                     <input required='' type="text" placeholder='Last Name' name='lastName' id='last-name' value={formData.lastName} onChange={handleChange} />
                     <section className="button-section">
                         <button type='submit' >Submit</button>
-                        <Link to="/attendance"><button> Cancel </button></Link>
+                        <Link to="/task"><button> Cancel </button></Link>
                     </section>
                 </div>
             </form>

@@ -27,10 +27,10 @@ export default function App(props) {
     <ApiContext.Provider value={value}>
       <div>
         <nav role="navigation">
-          <Link to="/"><h1>Present</h1></Link>
+          <Link to="/"><h1>Task</h1></Link>
         </nav>
         <Route exact path="/" component={Home} />
-        <Route path="/attendance" component={Attendance} />
+        <Route path="/task" component={Task} />
         <Route path="/add-task" component={AddTask} />
         <Route path="/task-history/:id" component={TaskHistory} />
         <Route path="/tasks-history" component={TasksHistory} />

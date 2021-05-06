@@ -1,6 +1,6 @@
-import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import CircleButton from './CircleButton'
+// import React from 'react'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import CircleButton from './CircleButton'
 // import './index.css'
 
 export default function TaskPageNav(props) {
