@@ -1,20 +1,42 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 import data from './data';
 import ApiContext from './ApiContext';
 import TaskHistory from './TaskHistory'
+import TaskCheck from './TaskCheck'
+import TaskForm from './TaskForm'
+import AddTask from './AddTask'
 
 export default function Task(props) {
   const context = useContext(ApiContext)
   const initialCheck = {};
-  const [checked, setChecked] = useState(initialCheck);
+  const [checked, setChecked] = useState(false);
 
-  console.log('checked', checked)
-  // {}
-  console.log('initialCheck', initialCheck)
-  // {}
-  console.log('context.tasks', context.tasks)
-  // [{...tasks}]
+  const init = {
+    content: "",
+    lastName: "",
+}
+
+const [formData, setFormData] = useState(init)
+
+const handleChange = (e) => {
+    setFormData({
+        ...formData,
+        [e.target.name]: e.target.value
+    })
+}
+const onSubmit = (e) => {
+    {/* insert fetch and then for db */ }
+    e.preventDefault()
+    const newTask = {
+        content: formData.content,
+        last_name: formData.lastName,
+        id: uuidv4(),
+        complete: false,
+    }
+    context.setTasks([...context.tasks, newTask])
+}
 
   context.tasks.forEach(task => {
     initialCheck[task.id] = task.complete
@@ -31,47 +53,46 @@ export default function Task(props) {
     props.history.push(`/tasks-history`)
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    const updatedTasks = context.tasks.map(task => {
-      task.complete = checked[task.id] || false
-      return task
-    })
-    context.setTasks(updatedTasks)
-    console.log('updatedTasks', updatedTasks)
-    props.history.push(`/tasks-history`)
-  }
-
-  console.log('checked', checked)
-  // {task.id: false}
+  
 
 
   return (
     <main role="main">
       <header>
         <h2 className="h2">Task List</h2>
+        
+        <div>
+          {/* Wrap the input with TaskForm */}
+          {/* <input placeholder="Add task" type="text" name='content' id='content' />
+          <input required='' type="text" placeholder='Enter Task' name='content' id='content' value={formData.content} onChange={handleChange} />
+          <button type='submit' >Submit</button> */}
+          {/* <select>
+            <option value="personal">Personal</option>
+            <option value="work">Work</option>
+            <option value="chores">Chores</option>
+          </select> */}
+        </div>
+
       </header>
       <article className="form-section">
         {/* <label className="dream-date-label" htmlFor="date-month">Date: {data.date} </label> */}
       </article>
-      <form onSubmit={handleSubmit}>
-        {/* student names Link to EditStudent 
-                    check attendance by clicking name
-                    hover and focus
-                    add class to show its selected
-                    add pencil to left of name to edit student
-                    accessibility by altering setCheck w CSS to view as button*/}
-        {
-          context.tasks.map((task) => {
-            return <TaskHistory match={props.match} checked={checked[task.id]} setChecked={(isChecked) => setChecked(
-              { ...checked, [task.id]: isChecked })} task={task} updateTasks={updateTasks} />
-          })
-        }
-        {/* submit the attendance to student data */}
+      <form className='signup-form' onSubmit={onSubmit} >
+      <input required='' type="text" placeholder='Enter Task' name='content' id='content' value={formData.content} onChange={handleChange} />
+          <button type='submit' >Submit</button>
+        <div className="ul-text">
+          {
+            context.tasks.map((task) => {
+              return <TaskCheck match={props.match} checked={checked[task.id]} setChecked={(isChecked) => setChecked(
+                { ...checked, [task.id]: isChecked })} task={task} updateTasks={updateTasks} />
+            })
+          }
+          {/* submit check to data */}
+        </div>
         <section className="button-section">
           <button type="submit">Submit</button>
           <br />
-          <Link to="/add-task"><button>+ Task </button></Link>
+
         </section>
       </form>
     </main>

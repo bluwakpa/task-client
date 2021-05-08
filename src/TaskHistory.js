@@ -11,6 +11,7 @@ export default function TaskHistory({ match, task }) {
 
     const tasks = context.tasks;
     console.log('tasks', tasks)
+    console.log('task', task)
 
     const listItems = tasks.map((task) =>
         <TaskHistory key={task.toString()}
@@ -21,9 +22,9 @@ export default function TaskHistory({ match, task }) {
     return (
         <main role="main">
             <header role="banner">
-                {/* <h2>Task History</h2> */}
+                <h2>Task History</h2>
                 <h3>
-                    {task.content} {task.last_name} <br />
+                    {task.content} <br />
                 </h3>
                 <div>
                     {
