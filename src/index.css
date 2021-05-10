@@ -11,13 +11,19 @@ body {
   line-height: 1.5;
 }
 
-nav,
 footer {
+  bottom: 0;
+  position: fixed;
   padding: 1% 0;
   background-color: #aaa;
+  width: 100%;
+  left: 0;
+  right: 0;
 }
 
 nav {
+  padding: 1% 0;
+  background-color: #aaa;
   position: fixed;
   top: 0;
   left: 0;
@@ -26,7 +32,7 @@ nav {
 }
 
 header {
-  padding: 12% 0;
+  padding-block-start: 20%;
 }
 
 section {
@@ -112,4 +118,8 @@ section:nth-child(even) {
 
 .Task-form {
   text-decoration: line-through;
+}
+
+.ul-text {
+  padding-block: 15px;
 }

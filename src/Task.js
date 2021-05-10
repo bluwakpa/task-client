@@ -64,13 +64,7 @@ const onSubmit = (e) => {
                 { ...checked, [task.id]: isChecked })} task={task} updateTasks={updateTasks} />
             })
           }
-          {/* submit check to data */}
         </div>
-        {/* <section className="button-section">
-          <button type="submit">Submit</button>
-          <br />
-
-        </section> */}
       </form>
     </main>
   );
