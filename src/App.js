@@ -3,12 +3,8 @@ import data from './data';
 import { Route, Link } from 'react-router-dom';
 import './index.css';
 import Task from './Task';
-import AddTask from './AddTask';
-import EditTask from './EditTask';
 import Home from './Home';
 import ApiContext from './ApiContext';
-import TaskHistory from './TaskHistory';
-import TasksHistory from './TasksHistory'
 
 export default function App(props) {
   const [tasks, setTasks] = useState(data.tasks)
@@ -31,12 +27,12 @@ export default function App(props) {
         </nav>
         <Route exact path="/" component={Home} />
         <Route path="/task" component={Task} />
-        <Route path="/add-task" component={AddTask} />
+        {/* <Route path="/add-task" component={AddTask} />
         <Route path="/task-history/:id" component={TaskHistory} />
         <Route path="/tasks-history" component={TasksHistory} />
-        <Route path="/edit-task/:id" render={(props) => <EditTask {...props} title={`Props through render`} />} />
+        <Route path="/edit-task/:id" render={(props) => <EditTask {...props} title={`Props through render`} />} /> */}
       </div>
-      <footer role="content-info">Copyright 2021</footer>
+      <footer role="contentinfo">Copyright 2021</footer>
     </ApiContext.Provider>
   );
 }

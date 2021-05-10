@@ -1,12 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
-import data from './data';
 import ApiContext from './ApiContext';
-import TaskHistory from './TaskHistory'
 import TaskCheck from './TaskCheck'
-import TaskForm from './TaskForm'
-import AddTask from './AddTask'
 
 export default function Task(props) {
   const context = useContext(ApiContext)
@@ -54,46 +49,28 @@ const onSubmit = (e) => {
   }
 
   
-
-
   return (
     <main role="main">
       <header>
         <h2 className="h2">Task List</h2>
-        
-        <div>
-          {/* Wrap the input with TaskForm */}
-          {/* <input placeholder="Add task" type="text" name='content' id='content' />
-          <input required='' type="text" placeholder='Enter Task' name='content' id='content' value={formData.content} onChange={handleChange} />
-          <button type='submit' >Submit</button> */}
-          {/* <select>
-            <option value="personal">Personal</option>
-            <option value="work">Work</option>
-            <option value="chores">Chores</option>
-          </select> */}
-        </div>
-
       </header>
-      <article className="form-section">
-        {/* <label className="dream-date-label" htmlFor="date-month">Date: {data.date} </label> */}
-      </article>
       <form className='signup-form' onSubmit={onSubmit} >
       <input required='' type="text" placeholder='Enter Task' name='content' id='content' value={formData.content} onChange={handleChange} />
           <button type='submit' >Submit</button>
         <div className="ul-text">
           {
             context.tasks.map((task) => {
-              return <TaskCheck match={props.match} checked={checked[task.id]} setChecked={(isChecked) => setChecked(
+              return <TaskCheck match={props.match} key={task.id} checked={checked} setChecked={(isChecked) => setChecked(
                 { ...checked, [task.id]: isChecked })} task={task} updateTasks={updateTasks} />
             })
           }
           {/* submit check to data */}
         </div>
-        <section className="button-section">
+        {/* <section className="button-section">
           <button type="submit">Submit</button>
           <br />
 
-        </section>
+        </section> */}
       </form>
     </main>
   );
