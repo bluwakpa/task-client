@@ -25,7 +25,7 @@ export default function TaskCheck({ task, checked, setChecked }) {
 
     return (
         <div>
-            <label htmlFor="check" tasks={task.content}>
+            <label htmlFor="check" >
                 <button
                     className='Task__delete'
                     type='button'
