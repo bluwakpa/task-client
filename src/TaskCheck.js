@@ -34,7 +34,7 @@ export default function TaskCheck({ task, checked, setChecked }) {
                 <span>{task.content}</span>
                 {/* setStudents to new version of students */}
                 <input className="checkbox" onChange={(e) => handleChecked(e, task.id)} value={task.complete} checked={task.complete} type="checkbox" name="check"
-                    id="check" className="complete">
+                    className="complete">
                 </input>
             </label>
         </div>

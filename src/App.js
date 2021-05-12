@@ -1,13 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import data from './data';
 import { Route, Link } from 'react-router-dom';
 import './index.css';
 import Task from './Task';
 import Home from './Home';
 import ApiContext from './ApiContext';
+import config from './config';
 
 export default function App(props) {
   const [tasks, setTasks] = useState(data.tasks)
+
+  useEffect(() => {
+    fetch(`${config.API_ENDPOINT}/api/tasks`)
+        .then(res => {
+            if (!res.ok)
+                return Promise.reject(res)
+            return res.json()
+        })
+        .then((tasks) => {
+            setTasks(tasks)
+        })
+        .catch(error => {
+            console.error({ error })
+        })
+}, [])
+
   const handleClickDelete = (e) => {
     e.preventDefault()
     const tasks = props.match.params.id
@@ -27,11 +44,7 @@ export default function App(props) {
         </nav>
         <Route exact path="/" component={Home} />
         <Route path="/task" component={Task} />
-        {/* <Route path="/add-task" component={AddTask} />
-        <Route path="/task-history/:id" component={TaskHistory} />
-        <Route path="/tasks-history" component={TasksHistory} />
-        <Route path="/edit-task/:id" render={(props) => <EditTask {...props} title={`Props through render`} />} /> */}
-      </div>
+       </div>
       <footer role="contentinfo">Copyright 2021</footer>
     </ApiContext.Provider>
   );
