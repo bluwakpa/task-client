@@ -1,11 +1,9 @@
 import React, { useContext } from 'react';
 import ApiContext from './ApiContext';
-import data from './data';
 
 export default function TaskCheck({ task, checked, setChecked }) {
     const context = useContext(ApiContext)
     const setTasks = context.setTasks
-    const tasks = data.tasks
 
     const handleClickDelete = (e) => {
         const id = task.id
@@ -33,7 +31,7 @@ export default function TaskCheck({ task, checked, setChecked }) {
                 > Delete </button>
                 <span>{task.content}</span>
                 {/* setStudents to new version of students */}
-                <input className="checkbox" onChange={(e) => handleChecked(e, task.id)} value={task.complete} checked={task.complete} type="checkbox" name="check"
+                <input onChange={(e) => handleChecked(e, task.id)} value={task.complete} checked={task.complete} type="checkbox" name="check"
                     className="complete">
                 </input>
             </label>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import data from './data';
-import { Route, Link } from 'react-router-dom';
+import { Route, BrowserRouter, Link } from 'react-router-dom';
 import './index.css';
 import Task from './Task';
 import Home from './Home';
@@ -12,18 +12,18 @@ export default function App(props) {
 
   useEffect(() => {
     fetch(`${config.API_ENDPOINT}/api/tasks`)
-        .then(res => {
-            if (!res.ok)
-                return Promise.reject(res)
-            return res.json()
-        })
-        .then((tasks) => {
-            setTasks(tasks)
-        })
-        .catch(error => {
-            console.error({ error })
-        })
-}, [])
+      .then(res => {
+        if (!res.ok)
+          return Promise.reject(res)
+        return res.json()
+      })
+      .then((tasks) => {
+        setTasks(tasks)
+      })
+      .catch(error => {
+        console.error({ error })
+      })
+  }, [])
 
   const handleClickDelete = (e) => {
     e.preventDefault()
@@ -37,15 +37,17 @@ export default function App(props) {
     handleClickDelete
   }
   return (
-    <ApiContext.Provider value={value}>
-      <div>
-        <nav role="navigation">
-          <Link to="/"><h1>Task</h1></Link>
-        </nav>
-        <Route exact path="/" component={Home} />
-        <Route path="/task" component={Task} />
-       </div>
-      <footer role="contentinfo">Copyright 2021</footer>
-    </ApiContext.Provider>
+    <BrowserRouter>
+      <ApiContext.Provider value={value}>
+        <div>
+          <nav role="navigation">
+            <Link to="/"><h1>Task</h1></Link>
+          </nav>
+          <Route exact path="/" component={Home} />
+          <Route path="/task" component={Task} />
+        </div>
+        <footer role="contentinfo">Copyright 2021</footer>
+      </ApiContext.Provider>
+    </BrowserRouter>
   );
 }

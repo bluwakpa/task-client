@@ -11,7 +11,7 @@ export default function App() {
                     <p> Track and categorize your tasks to stay organized and view your progress. </p>
                 </header>
                 <section className="button-section">
-                    <Link to="/task"><button class="button"> Start </button></Link>
+                    <Link to="/task"><button className="button"> Start </button></Link>
                 </section>
             </div>
     );
