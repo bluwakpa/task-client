@@ -40,13 +40,13 @@ export default function App(props) {
     <BrowserRouter>
       <ApiContext.Provider value={value}>
         <div>
-          <nav role="navigation">
-            <Link to="/"><h1>Task</h1></Link>
+          <nav role="navigation" className="nav">
+            <Link to="/"><h1 className="h1">Task</h1></Link>
           </nav>
           <Route exact path="/" component={Home} />
           <Route path="/task" component={Task} />
         </div>
-        <footer role="contentinfo">Copyright 2021</footer>
+        <footer role="contentinfo" className="footer">Copyright 2021</footer>
       </ApiContext.Provider>
     </BrowserRouter>
   );

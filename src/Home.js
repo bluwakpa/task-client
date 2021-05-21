@@ -5,13 +5,13 @@ import './index.css';
 export default function App() {
     return (
             <div>
-                <main role="main" />
-                <header role="banner">
-                    <h2> Home </h2>
+                <main role="main" className="main" />
+                <header role="banner" className="header">
+                    <h2 className="h2"> Home </h2>
                     <p> Track and categorize your tasks to stay organized and view your progress. </p>
                 </header>
                 <section className="button-section">
-                    <Link to="/task"><button className="button"> Start </button></Link>
+                    <Link to="/task"><button className="button"> Get Organized! </button></Link>
                 </section>
             </div>
     );

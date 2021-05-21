@@ -9,30 +9,59 @@ body {
   color: #444;
   text-align: center;
   line-height: 1.5;
+  background-color: #0D0D0D;
+}
+
+.main {
+  background-color: #0D0D0D;
 }
 
 footer {
   bottom: 0;
-  position: fixed;
+  /* position: fixed; */
   padding: 1% 0;
-  background-color: #aaa;
+  background-color: #404040;
   width: 100%;
   left: 0;
   right: 0;
+  color: #04BF7B;
+  font-size: 12px;
 }
 
 nav {
-  padding: 1% 0;
-  background-color: #aaa;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 10;
+  padding: 0% 0;
+  background-color: #404040;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+nav a:visited {
+  color:rgb(49, 204, 176);
+}
+
+.strike {
+  text-decoration: line-through;
+  text-align: left;
+}
+
+.left {
+  text-align: left;
+}
+
+.input {
+  padding: 8px;
 }
 
 header {
   padding-block-start: 20%;
+  color: #fff;
 }
 
 section {
@@ -121,9 +150,82 @@ section:nth-child(even) {
 }
 
 .button-section {
-  background-color: #fff;
+  background-color: #0D0D0D;
+}
+
+.button {
+  background-color: #03A696;
+  align-content: right;
 }
 
 .ul-text {
-  padding-block: 15px;
+  padding: 15px;
+  color: #ffff;
+}
+
+.h1 {
+  color: #05F2DB;
+  font-family: 'Syncopate', sans-serif;
+  font-size: 38px;
+}
+
+.h2 {
+  color: grey;
+}
+
+.TaskCheck {
+  text-align: left;
+}
+
+.signup-form {
+  min-height: 450px;
+}
+
+.parent-container {
+  background-color: #404040;
+  padding: 15px 0px;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+@media only screen and (min-width: 600px) {
+  .parent-container {
+    padding-left: 25%;
+    padding-right: 25%;
+  }
+}
+
+.position-right {
+  margin-left: 20px;
+  float: right;
+  /* display: inline; */
+}
+
+.complete {
+  align-items: right;
+}
+
+/* Grid */
+
+.item-a {
+  grid-area: header;
+}
+.item-b {
+  grid-area: main;
+}
+.item-c {
+  grid-area: sidebar;
+}
+.item-d {
+  grid-area: footer;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 50px 50px 50px 50px;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "header header header header"
+    "main main . sidebar"
+    "footer footer footer footer";
 }
