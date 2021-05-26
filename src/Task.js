@@ -42,11 +42,11 @@ export default function Task(props) {
   return (
     <main role="main" className="main">
       <header>
-        <h2 className="h2">List</h2>
+        <h2 className="h2">Let's Get Stuff Done</h2>
       </header>
       <form className='signup-form' onSubmit={onSubmit} >
-        <input className="input" required='' type="text" placeholder='Enter Task' name='content' id='content' value={formData.content} onChange={handleChange} />
-        <button type='submit' className='button'>Submit</button>
+        <input className="input" required='' type="text" placeholder='What do you want to get done today?' name='content' id='content' value={formData.content} onChange={handleChange} />
+        <button type='submit' className='button'>ADD</button>
         <div className="ul-text">
           {
             context.tasks.map((task) => {

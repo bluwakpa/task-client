@@ -26,19 +26,17 @@ export default function TaskCheck({ task }) {
     return (
         <div className="parent-container">
             <input onChange={(e) => handleChecked(e, task.id)} value={task.complete} checked={task.complete} type="checkbox" name="check"
-                        className="complete">
-                    </input>
+                className="complete">
+            </input>
             <label htmlFor="check" className={checked ? 'strike' : 'left'}>{task.content}</label>
-                <div className="position-right">
-                    <button
-                        className='button'
-                        type='button'
-                        onClick={handleClickDelete}
-                    > Delete </button>
-                    {/* setStudents to new version of students */}
-                    
-                </div>
-            
+            <div className="position-right">
+                <button
+                    className='Delete-button'
+                    type='button'
+                    onClick={handleClickDelete}
+                > <i class="fa fa-2x fa-trash"></i> </button>
+                {/* setStudents to new version of students */}
+            </div>
         </div>
     )
 }
