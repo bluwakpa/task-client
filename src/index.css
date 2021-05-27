@@ -60,8 +60,13 @@ nav a:visited {
 
 .input {
   padding: 8px;
-  width: 275px;
+  max-width: 300px;
+  min-width: 250px;
   height: 45px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
 }
 
 header {
@@ -167,10 +172,26 @@ section:nth-child(even) {
 
 .button {
   background-color: #FFE05D;
-  align-content: right;
+  /* align-content: right; */
   height: 45px;
   width: 55px;
+  margin-left: 10px;
   font-weight: bold;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+}
+
+.start-button {
+  background-color: #FFE05D;
+  height: 65px;
+  width: 90px;
+  font-weight: bold;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
 }
 
 .ul-text {
@@ -182,8 +203,10 @@ section:nth-child(even) {
   color: #05F2DB;
   font-family: 'Syncopate', sans-serif;
   font-size: 38px;
+  display: inline-block;
 }
 
+@media screen and (max-width: 600px) { h2 { margin-top: 64px; } }
 .h2 {
   color: #ddd;
 }
@@ -197,6 +220,11 @@ section:nth-child(even) {
 .hamburger {
   color: #FFE05D;
   text-align: left;
+  flex-grow: 1;
+  flex-basis: 0;
+  padding: 10px;
+  text-decoration: none;
+  text-align: center;
 }
 
 .TaskCheck {
@@ -231,10 +259,20 @@ section:nth-child(even) {
 }
 
 .complete {
-  align-items: right;
+  /* align-items: right; */
   margin-right: 15px;
-  height: 20px;
-  width: 20px;
+  min-width: 25px;
+  min-height: 25px;
+  height: 25px;
+  width: 25px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+}
+
+.copyright {
+  color: white;
 }
 
 

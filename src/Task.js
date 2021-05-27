@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import ApiContext from './ApiContext';
-import TaskCheck from './TaskCheck'
+import TaskCheck from './TaskCheck';
+import config from './config';
 
 export default function Task(props) {
   const context = useContext(ApiContext)
@@ -20,15 +21,31 @@ export default function Task(props) {
       [e.target.name]: e.target.value
     })
   }
+
   const onSubmit = (e) => {
-    /* insert fetch and then for db */
     e.preventDefault()
-    const newTask = {
-      content: formData.content,
-      id: uuidv4(),
-      complete: false,
-    }
-    context.setTasks([...context.tasks, newTask])
+    setFormData({
+      ...formData,
+      content: ''
+    })
+    fetch(`${config.API_ENDPOINT}/api/tasks`)
+      .then(res => {
+        if (!res.ok)
+          return Promise.reject(res)
+        return res.json()
+      })
+      .then((formData) => {
+        // const task = req.body
+        const newTask = {
+          content: formData.content,
+          id: uuidv4(),
+          complete: false,
+        }
+        context.setTasks([...context.tasks, newTask])
+      })
+      .catch(error => {
+        console.error({ error })
+      })
   }
 
   const updateTasks = (newTask) => {
@@ -45,7 +62,7 @@ export default function Task(props) {
         <h2 className="h2">Let's Get Stuff Done</h2>
       </header>
       <form className='signup-form' onSubmit={onSubmit} >
-        <input className="input" required='' type="text" placeholder='What do you want to get done today?' name='content' id='content' value={formData.content} onChange={handleChange} />
+        <input className="input" required='required' type="text" placeholder='What do you want to get done today?' name='content' id='content' value={formData.content} onChange={handleChange} />
         <button type='submit' className='button'>ADD</button>
         <div className="ul-text">
           {

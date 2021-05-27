@@ -41,16 +41,17 @@ export default function App(props) {
       <ApiContext.Provider value={value}>
         <div>
           <nav role="navigation" className="nav">
-          {/* <h1 className="hamburger"><i class="fa fa-bars"></i></h1> */}
+          <i className="hamburger" class="fa fa-bars"></i>
             <Link to="/">
-            <h1 className="h1"><i className="hamburger" class="fa fa-bars"></i> Task</h1></Link>
+            <h1 className="h1"> Task</h1></Link>
           </nav>
           <Route exact path="/" component={Home} />
           <Route path="/task" component={Task} />
         </div>
         <footer role="contentinfo" className="footer">
         <h1 className="h3">Task</h1>
-          Copyright 2021<br />
+        <div className="copyright">Copyright 2021</div>
+          <br />
           FAQs<br />
           Need Help?<br />
           Contact Us
