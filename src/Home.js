@@ -11,7 +11,12 @@ export default function App() {
                 <p> Track and categorize your tasks to stay organized and view your progress. </p>
             </header>
             <section className="button-section">
-                <Link to="/task"><button className="start-button"> Get Organized! <i class="fas fa-2x fa-arrow-circle-right"></i></button></Link>
+                <Link to="/tasks"><button className="start-button">
+                    <div>
+                        <span>Get Organized!</span>
+                        <i className="fas fa-2x fa-arrow-circle-right"></i>
+                    </div>
+                </button></Link>
             </section>
         </div>
     );

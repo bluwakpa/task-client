@@ -10,38 +10,46 @@ export default function Task(props) {
 
   const init = {
     content: "",
-    lastName: "",
+    id: "",
+    modified: "",
+    complete: false,
   }
 
   const [formData, setFormData] = useState(init)
 
   const handleChange = (e) => {
+    console.log('e.target.value', e.target.value)
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      content: e.target.value
     })
   }
 
   const onSubmit = (e) => {
     e.preventDefault()
-    setFormData({
-      ...formData,
-      content: ''
+    const newTask = {
+      content: formData.content,
+      id: uuidv4(),
+      modified: new Date(),
+      complete: false,
+    }
+  
+    fetch(`${config.API_ENDPOINT}/api/tasks`, {
+      mode: 'cors',
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(newTask),
     })
-    fetch(`${config.API_ENDPOINT}/api/tasks`)
       .then(res => {
         if (!res.ok)
-          return Promise.reject(res)
+          return res.json().then(e => Promise.reject(e))
         return res.json()
       })
-      .then((formData) => {
-        // const task = req.body
-        const newTask = {
-          content: formData.content,
-          id: uuidv4(),
-          complete: false,
-        }
+      .then(newTask => {
         context.setTasks([...context.tasks, newTask])
+        props.history.push(`/tasks`)
       })
       .catch(error => {
         console.error({ error })

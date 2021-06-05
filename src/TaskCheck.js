@@ -1,16 +1,29 @@
 import React, { useContext, useState } from 'react';
 import ApiContext from './ApiContext';
+import config from './config';
 
-export default function TaskCheck({ task }) {
+export default function TaskCheck(props) {
     const context = useContext(ApiContext)
     const setTasks = context.setTasks
     const [checked, setChecked] = useState(false)
 
     const handleClickDelete = (e) => {
-        const id = task.id
-        let deleted = context.tasks.filter(task => task.id !== id)
-        setTasks(deleted)
-    }
+        e.preventDefault()
+
+        fetch(`${config.API_ENDPOINT}/api/tasks/${props.task.id}`, {
+            method: 'DELETE',
+            headers: {
+                'content-type': 'application/json'
+            },
+        })
+            .then(() => {
+                const filteredDelete = context.tasks.filter(task => task.id !== props.task.id)
+                context.setTasks(filteredDelete)
+            })
+            .catch(error => {
+                console.error({ error })
+            })
+    };
 
     const handleChecked = (e, id) => {
         setChecked(!checked)
@@ -25,16 +38,16 @@ export default function TaskCheck({ task }) {
 
     return (
         <div className="parent-container">
-            <input onChange={(e) => handleChecked(e, task.id)} value={task.complete} checked={task.complete} type="checkbox" name="check"
+            <input onChange={(e) => handleChecked(e, props.task.id)} value={props.task.complete} checked={props.task.complete} type="checkbox" name="check"
                 className="complete">
             </input>
-            <label htmlFor="check" className={checked ? 'strike' : 'left'}>{task.content}</label>
+            <label htmlFor="check" className={checked ? 'strike' : 'left'}>{props.task.content}</label>
             <div className="position-right">
                 <button
                     className='Delete-button'
                     type='button'
                     onClick={handleClickDelete}
-                > <i class="fa fa-2x fa-trash"></i> </button>
+                > <i className="fa fa-2x fa-trash"></i> </button>
                 {/* setStudents to new version of students */}
             </div>
         </div>

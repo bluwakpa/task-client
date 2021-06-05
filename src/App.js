@@ -8,7 +8,7 @@ import ApiContext from './ApiContext';
 import config from './config';
 
 export default function App(props) {
-  const [tasks, setTasks] = useState(data.tasks)
+  const [tasks, setTasks] = useState([])
 
   useEffect(() => {
     fetch(`${config.API_ENDPOINT}/api/tasks`)
@@ -28,25 +28,46 @@ export default function App(props) {
   const handleClickDelete = (e) => {
     e.preventDefault()
     const tasks = props.match.params.id
-    console.log("tasks", tasks)
-  }
+    console.log('tasks', tasks)
+
+    fetch(`${config.API_ENDPOINT}/api/tasks`, {
+      method: 'DELETE',
+      headers: {
+          'content-type': 'application/json'
+      },
+  })
+      .then(res => {
+          if (!res.ok)
+              return Promise.reject(e)
+          const newTasks = [...tasks]
+          const indexOfDeleted = tasks.findIndex(task => task.id === tasks)
+          newTasks.splice(indexOfDeleted, 1)
+          this.context.setTasks(newTasks)
+          props.history.push(`/tasks`)
+      })
+      .catch(error => {
+          console.error({ error })
+      })
+};
 
   const value = {
     tasks,
     setTasks,
     handleClickDelete
   }
+
   return (
     <BrowserRouter>
       <ApiContext.Provider value={value}>
         <div>
           <nav role="navigation" className="nav">
-          <i className="hamburger" class="fa fa-bars"></i>
+            {/* className="hamburger" */}
+          <i className="fa fa-bars"></i>
             <Link to="/">
             <h1 className="h1"> Task</h1></Link>
           </nav>
           <Route exact path="/" component={Home} />
-          <Route path="/task" component={Task} />
+          <Route path="/tasks" component={Task} />
         </div>
         <footer role="contentinfo" className="footer">
         <h1 className="h3">Task</h1>

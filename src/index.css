@@ -186,12 +186,21 @@ section:nth-child(even) {
 .start-button {
   background-color: #FFE05D;
   height: 65px;
-  width: 90px;
+  /* width: 90px; */
   font-weight: bold;
   border-left-width: 0px;
   border-right-width: 0px;
   border-top-width: 0px;
   border-bottom-width: 0px;
+}
+
+.start-button div {
+  display: flex;
+  align-items: center;
+}
+
+.start-button div span {
+  padding-right: 5px;
 }
 
 .ul-text {
