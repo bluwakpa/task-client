@@ -48,6 +48,7 @@ export default function Task(props) {
         return res.json()
       })
       .then(newTask => {
+        setFormData(init)
         context.setTasks([...context.tasks, newTask])
         props.history.push(`/tasks`)
       })
