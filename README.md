@@ -25,3 +25,11 @@ PostgreSQL
 1. Checkbox Color Redesign
 2. Button Hover Features
 4. Add Header Hamburger Menu
+
+### Screenshots
+
+Click to view.
+-----------
+
+[![Home](https://github.com/bluwakpa/task-client/img/task-home.png)](https://github.com/bluwakpa/task-client/img/task-home.png)
+[![Tasks](https://github.com/bluwakpa/task-client/img/task-tasks.png)](https://github.com/bluwakpa/task-client/img/task-tasks.png)
