@@ -26,10 +26,7 @@ PostgreSQL
 2. Button Hover Features
 4. Add Header Hamburger Menu
 
-### Screenshots
+## Screenshots
 
-Click to view.
------------
-
-[![Home](https://github.com/bluwakpa/task-client/img/task-home.png)](https://github.com/bluwakpa/task-client/img/task-home.png)
-[![Tasks](https://github.com/bluwakpa/task-client/img/task-tasks.png)](https://github.com/bluwakpa/task-client/img/task-tasks.png)
+<img src="img/task-home.png" width=38% height=38%>
+<img src="img/task-tasks.png" width=30% height=30%>
