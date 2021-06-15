@@ -33,22 +33,22 @@ export default function App(props) {
     fetch(`${config.API_ENDPOINT}/api/tasks`, {
       method: 'DELETE',
       headers: {
-          'content-type': 'application/json'
+        'content-type': 'application/json'
       },
-  })
+    })
       .then(res => {
-          if (!res.ok)
-              return Promise.reject(e)
-          const newTasks = [...tasks]
-          const indexOfDeleted = tasks.findIndex(task => task.id === tasks)
-          newTasks.splice(indexOfDeleted, 1)
-          this.context.setTasks(newTasks)
-          props.history.push(`/tasks`)
+        if (!res.ok)
+          return Promise.reject(e)
+        const newTasks = [...tasks]
+        const indexOfDeleted = tasks.findIndex(task => task.id === tasks)
+        newTasks.splice(indexOfDeleted, 1)
+        this.context.setTasks(newTasks)
+        props.history.push(`/tasks`)
       })
       .catch(error => {
-          console.error({ error })
+        console.error({ error })
       })
-};
+  };
 
   const value = {
     tasks,
@@ -57,27 +57,25 @@ export default function App(props) {
   }
 
   return (
-    <BrowserRouter>
-      <ApiContext.Provider value={value}>
-        <div>
-          <nav role="navigation" className="nav">
-            {/* className="hamburger" */}
+    <ApiContext.Provider value={value}>
+      <div>
+        <nav role="navigation" className="nav">
+          {/* className="hamburger" */}
           <i className="fa fa-bars"></i>
-            <Link to="/">
+          <Link to="/">
             <h1 className="h1"> Task</h1></Link>
-          </nav>
-          <Route exact path="/" component={Home} />
-          <Route path="/tasks" component={Task} />
-        </div>
-        <footer role="contentinfo" className="footer">
+        </nav>
+        <Route exact path="/" component={Home} />
+        <Route path="/tasks" component={Task} />
+      </div>
+      <footer role="contentinfo" className="footer">
         <h1 className="h3">Task</h1>
         <div className="copyright">Copyright 2021</div>
-          <br />
+        <br />
           FAQs<br />
           Need Help?<br />
           Contact Us
         </footer>
-      </ApiContext.Provider>
-    </BrowserRouter>
+    </ApiContext.Provider>
   );
 }

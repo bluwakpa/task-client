@@ -5,6 +5,7 @@ import TaskCheck from './TaskCheck';
 import config from './config';
 
 export default function Task(props) {
+  console.log(1)
   const context = useContext(ApiContext)
   const [checked, setChecked] = useState({});
 
