@@ -18,10 +18,10 @@ export default function App() {
                     </header>
                     <section className="button-section">
                         <Link to="/tasks">
-                            {/* <button onSubmit={onSubmit} className="start-button"> */}
+                            <button onSubmit={onSubmit} className="start-button">
                                 <span>Get Organized!</span>
-                                {/* <i className="fas fa-2x fa-arrow-circle-right"></i> */}
-                        {/* </button> */}
+                                <i className="fas fa-2x fa-arrow-circle-right"></i>
+                        </button>
                         </Link>
                     </section>
                 </main>
