@@ -18,7 +18,6 @@ export default function Task(props) {
   const [formData, setFormData] = useState(init)
 
   const handleChange = (e) => {
-    console.log('e.target.value', e.target.value)
     setFormData({
       ...formData,
       content: e.target.value

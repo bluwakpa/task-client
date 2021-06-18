@@ -27,7 +27,6 @@ export default function App(props) {
   const handleClickDelete = (e) => {
     e.preventDefault()
     const tasks = props.match.params.id
-    console.log('tasks', tasks)
 
     fetch(`${config.API_ENDPOINT}/api/tasks`, {
       method: 'DELETE',
