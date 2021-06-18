@@ -21,10 +21,21 @@ Node
 Express
 PostgreSQL
 
+## API Documentation
+
+Live version: https://frozen-crag-61297.herokuapp.com
+
+| Method | URL  | Success  | Error |
+| :-----: | :-: | :-: | :-: |
+| GET | /api/tasks | 200 | 400 |
+| POST | / | 201 | 400 |
+| DELETE | /:id | 204 | 400 |
+| PATCH | /:id | 204 | 400 |
+
 ## Features Todo
 1. Checkbox Color Redesign
 2. Button Hover Features
-4. Add Header Hamburger Menu
+4. Complete Header Hamburger Menu
 
 ## Screenshots
 
