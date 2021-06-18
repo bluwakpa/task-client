@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import data from './data';
-import { Route, BrowserRouter, Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import './index.css';
 import Task from './Task';
 import Home from './Home';
@@ -60,22 +59,24 @@ export default function App(props) {
     <ApiContext.Provider value={value}>
       <div>
         <nav role="navigation" className="nav">
-          {/* className="hamburger" */}
-          <i className="fa fa-bars"></i>
-          <Link to="/">
-            <h1 className="h1"> Task</h1></Link>
+          <a className="hamburger" >
+            <i className="fa fa-bars"></i>
+          </a>
+          <Link className="logo" to="/">
+            <h1>Task</h1>
+          </Link>
         </nav>
         <Route exact path="/" component={Home} />
         <Route path="/tasks" component={Task} />
       </div>
       <footer role="contentinfo" className="footer">
-        <h1 className="h3">Task</h1>
+        <h3>Task</h3>
         <div className="copyright">Copyright 2021</div>
         <br />
           FAQs<br />
           Need Help?<br />
           Contact Us
-        </footer>
+      </footer>
     </ApiContext.Provider>
   );
 }

@@ -69,7 +69,7 @@ export default function Task(props) {
   return (
     <main role="main" className="main">
       <header>
-        <h2 className="h2">Let's Get Stuff Done</h2>
+        <h2>Let's Get Stuff Done</h2>
       </header>
       <form className='signup-form' onSubmit={onSubmit} >
         <input className="input" required='required' type="text" placeholder='What do you want to get done today?' name='content' id='content' value={formData.content} onChange={handleChange} />
