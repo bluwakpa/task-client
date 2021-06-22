@@ -19,11 +19,17 @@ nav {
   left: 0;
   right: 0;
   z-index: 10;
-  padding: 0% 0;
+  padding: 0;
   background-color: #404040;
-  -webkit-box-shadow: 0 2px 4px -1px rgba(0,0,0,0.25);
-	-moz-box-shadow: 0 2px 4px -1px rgba(0,0,0,0.25);
-	box-shadow: 0 2px 20px -1px rgb(0 0 0);
+  -webkit-box-shadow: 0 2px 4px -1px rgba(0,0,0,1);
+	-moz-box-shadow: 0 2px 4px -1px rgba(0,0,0,1);
+	box-shadow: 0 2px 20px -1px rgba(0,0,0,1);
+}
+
+nav.grid {
+  display: grid; 
+  grid-template-columns: 40px auto 40px; 
+  grid-template-rows: auto;
 }
 
 nav a {
@@ -66,9 +72,9 @@ footer {
   right: 0;
   color: #bbb;
   font-size: 12px;
-  -webkit-box-shadow: 0 2px 4px -1px rgba(0,0,0,0.25);
-	-moz-box-shadow: 0 2px 4px -1px rgba(0,0,0,0.25);
-	box-shadow: 0px 0px 20px -1px rgb(0 0 0)
+  -webkit-box-shadow: 0 2px 4px -1px rgba(0,0,0,1);
+	-moz-box-shadow: 0 2px 4px -1px rgba(0,0,0,1);
+	box-shadow: 0px 0px 20px -1px rgba(0,0,0,1)
 }
 
 section:nth-child(even) {
@@ -81,10 +87,7 @@ button {
   width: 55px;
   margin-left: 10px;
   font-weight: bold;
-  border-left-width: 0px;
-  border-right-width: 0px;
-  border-top-width: 0px;
-  border-bottom-width: 0px;
+  border-width: 0px;
 }
 
 .main {
@@ -105,10 +108,7 @@ button {
   max-width: 300px;
   min-width: 250px;
   height: 45px;
-  border-left-width: 0px;
-  border-right-width: 0px;
-  border-top-width: 0px;
-  border-bottom-width: 0px;
+  border-width: 0px;
 }
 
 .navbar {
@@ -198,11 +198,7 @@ button {
   height: 65px;
   width: 90px;
   font-weight: bold;
-  border-left-width: 0px;
-  border-right-width: 0px;
-  border-top-width: 0px;
-  border-bottom-width: 0px;
-  cursor: pointer;
+  border-width: 0px;
 }
 
 .start-button div {
@@ -252,6 +248,7 @@ button {
   margin-bottom: 8px;
   text-align: left;
   border-radius: 5px;
+  justify-content: space-between;
 }
 
 @media only screen and (min-width: 600px) {
@@ -272,10 +269,7 @@ button {
   min-height: 25px;
   height: 25px;
   width: 25px;
-  border-left-width: 0px;
-  border-right-width: 0px;
-  border-top-width: 0px;
-  border-bottom-width: 0px;
+  border-width: 0px;
 }
 
 .copyright {

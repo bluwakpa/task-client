@@ -57,7 +57,7 @@ export default function App(props) {
   return (
     <ApiContext.Provider value={value}>
       <div>
-        <nav role="navigation" className="nav">
+        <nav role="navigation" className="nav grid">
           <a className="hamburger" >
             <i className="fa fa-bars"></i>
           </a>

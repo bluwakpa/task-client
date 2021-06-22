@@ -38,10 +38,12 @@ export default function TaskCheck(props) {
 
     return (
         <div className="parent-container">
-            <input onChange={(e) => handleChecked(e, props.task.id)} value={props.task.complete} checked={props.task.complete} type="checkbox" name="check"
-                className="complete">
-            </input>
-            <label htmlFor="check" className={checked ? 'strike' : 'left'}>{props.task.content}</label>
+            <div>
+                <input onChange={(e) => handleChecked(e, props.task.id)} value={props.task.complete} checked={props.task.complete} type="checkbox" name="check"
+                    className="complete">
+                </input>
+                <label htmlFor="check" className={checked ? 'strike' : 'left'}>{props.task.content}</label>
+            </div>
             <div className="position-right">
                 <button
                     className='Delete-button'
